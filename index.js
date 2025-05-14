@@ -6,7 +6,7 @@ const morgan = require('morgan')
 app.use(express.json());
 app.use(cors())
 app.use(morgan('tiny'))
-
+app.use(express.static('dist'))
 let persons = [
     { 
       "id": "1",
@@ -30,9 +30,9 @@ let persons = [
     }
 ]
 
-app.get('/', (req, res) => {
-   res.send('<h1>hello worlds</h1>')
-})
+// app.get('/', (req, res) => {
+//    res.send('<h1>hello worlds</h1>')
+// })
 
 app.get('/api/persons', (req, res) => {
    res.json(persons)
